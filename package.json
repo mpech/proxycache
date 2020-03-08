@@ -1,0 +1,17 @@
+{
+  "name": "proxycache",
+  "version": "1.0.0",
+  "description": "serve requests from cache or fetch and cache",
+  "main": "index.js",
+  "dependencies": {
+    "body": "^5.1.0",
+    "http-proxy": "^1.18.0",
+    "optimist": "^0.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "bin/cli.js"
+  },
+  "author": "mpech",
+  "license": "WTF"
+}
