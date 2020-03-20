@@ -1,6 +1,7 @@
 #!/usr/bin/nodejs
 const http = require('http')
 const { proxy } = require('../')
+const path = require('path')
 const argv = require('optimist')
   .usage('Usage: $0 -m mapping [-m mapping]... [-v]')
   .demand(['m'])
@@ -26,5 +27,5 @@ const log = argv.verbose ? console.log.bind(console) : false
       throw new Error('invalid target', to)
     }
     console.log('forwarding', port, '->', to)
-    http.createServer(proxy(to, { log, fname: './cache.json' })).listen(port)
+    http.createServer(proxy(to, { log, fname: path.join(__dirname, '../cache.json') })).listen(port)
   })
