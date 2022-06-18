@@ -5,7 +5,6 @@ import path from 'path'
 import yargs from 'yargs/yargs'
 import { hideBin } from 'yargs/helpers'
 import { fileURLToPath } from 'url'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const argv = yargs(hideBin(process.argv))
   .command('proxyCache Usage: $0 -m mapping [-m mapping]... [-v]', 'listen to local url and forward to remote')
@@ -23,9 +22,15 @@ const argv = yargs(hideBin(process.argv))
     describe: 'rejectUnauthorized (ignore invalid certs name)',
     default: false
   })
+  .options('o', {
+    alias: 'output',
+    describe: 'stores the cache on file filesystem (set 0 to use memory only)',
+    default: 'cache-lmdb'
+  })
   .parse()
 
 const log = argv.verbose ? console.log.bind(console) : false
+const fname = argv.output && argv.output
 ;[argv.mapping]
   .flat()
   .map(x => x.split('->').map(y => y.trim()))
@@ -37,5 +42,5 @@ const log = argv.verbose ? console.log.bind(console) : false
       throw new Error('invalid target', to)
     }
     console.log('forwarding', port, '->', to)
-    http.createServer(proxy(to, { secure: !!argv.secure, log, fname: path.join(__dirname, '../cache-lmdb') })).listen(port)
+    http.createServer(proxy(to, { secure: !!argv.secure, log, fname })).listen(port)
   })
