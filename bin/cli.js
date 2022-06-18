@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-const http = require('http')
-const { proxy } = require('../')
-const path = require('path')
-
-const yargs = require('yargs/yargs')
-const { hideBin } = require('yargs/helpers')
+import http from 'http'
+import proxy from '../index.js'
+import path from 'path'
+import yargs from 'yargs/yargs'
+import { hideBin } from 'yargs/helpers'
+import { fileURLToPath } from 'url'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const argv = yargs(hideBin(process.argv))
   .command('proxyCache Usage: $0 -m mapping [-m mapping]... [-v]', 'listen to local url and forward to remote')
@@ -23,7 +24,6 @@ const argv = yargs(hideBin(process.argv))
     default: false
   })
   .parse()
-
 
 const log = argv.verbose ? console.log.bind(console) : false
 ;[argv.mapping]

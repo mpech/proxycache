@@ -17,5 +17,6 @@
     "supervisor": "^0.12.0"
   },
   "author": "mpech",
+  "type": "module",
   "license": "WTF"
 }
