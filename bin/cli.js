@@ -37,5 +37,5 @@ const log = argv.verbose ? console.log.bind(console) : false
       throw new Error('invalid target', to)
     }
     console.log('forwarding', port, '->', to)
-    http.createServer(proxy(to, { secure: !!argv.secure, log, fname: path.join(__dirname, '../cache.json') })).listen(port)
+    http.createServer(proxy(to, { secure: !!argv.secure, log, fname: path.join(__dirname, '../cache-lmdb') })).listen(port)
   })
