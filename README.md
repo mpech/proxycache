@@ -2,11 +2,16 @@
 
 Caches requests and serve the further requests from cached file
 
-## cli usage
+
+## Usage
 
 ```
+pnpm install
+npm run cli -- -m '3004->http://127.0.0.1:3005' -m '3006->http://127.0.0.1:3007' -v
+# or if you dev
 npm start -- -m '3004->http://127.0.0.1:3005' -m '3006->http://127.0.0.1:3007' -v
 ```
+
 
 ## Built With
 

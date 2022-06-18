@@ -6,13 +6,15 @@
   "dependencies": {
     "http-proxy": "^1.18.1",
     "lmdb": "^2.5.2",
-    "supervisor": "^0.12.0",
     "through2": "^3.0.2",
     "yargs": "^17.5.1"
   },
-  "devDependencies": {},
   "scripts": {
-    "start": "bin/cli.js"
+    "cli": "./bin/cli.js",
+    "start": "./super.sh"
+  },
+  "devDependencies": {
+    "supervisor": "^0.12.0"
   },
   "author": "mpech",
   "license": "WTF"
