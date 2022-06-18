@@ -4,7 +4,7 @@
   "description": "serve requests from cache or fetch and cache",
   "main": "index.js",
   "dependencies": {
-    "http-proxy": "^1.18.0",
+    "http-proxy": "^1.18.1",
     "optimist": "^0.6.1",
     "supervisor": "^0.12.0",
     "through2": "^3.0.1"
