@@ -1,0 +1,1 @@
+./node_modules/supervisor/lib/cli-wrapper.js -w lib -- ./bin/cli.js $@

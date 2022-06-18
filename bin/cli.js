@@ -1,4 +1,4 @@
-#!/usr/bin/nodejs
+#!/usr/bin/node
 const http = require('http')
 const { proxy } = require('../')
 const path = require('path')
@@ -12,6 +12,11 @@ const argv = require('optimist')
   .options('v', {
     alias: 'verbose',
     describe: 'log cache hit, target hit'
+  })
+  .options('s', {
+    alias: 'secure',
+    describe: 'rejectUnauthorized (ignore invalid certs name)',
+    default: false
   })
   .argv
 
@@ -27,5 +32,5 @@ const log = argv.verbose ? console.log.bind(console) : false
       throw new Error('invalid target', to)
     }
     console.log('forwarding', port, '->', to)
-    http.createServer(proxy(to, { log, fname: path.join(__dirname, '../cache.json') })).listen(port)
+    http.createServer(proxy(to, { secure: !!argv.secure, log, fname: path.join(__dirname, '../cache.json') })).listen(port)
   })

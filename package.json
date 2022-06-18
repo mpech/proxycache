@@ -6,6 +6,7 @@
   "dependencies": {
     "http-proxy": "^1.18.0",
     "optimist": "^0.6.1",
+    "supervisor": "^0.12.0",
     "through2": "^3.0.1"
   },
   "devDependencies": {},
