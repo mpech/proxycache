@@ -1,9 +1,13 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 const http = require('http')
 const { proxy } = require('../')
 const path = require('path')
-const argv = require('optimist')
-  .usage('Usage: $0 -m mapping [-m mapping]... [-v]')
+
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
+
+const argv = yargs(hideBin(process.argv))
+  .command('proxyCache Usage: $0 -m mapping [-m mapping]... [-v]', 'listen to local url and forward to remote')
   .demand(['m'])
   .options('m', {
     alias: 'mapping',
@@ -18,7 +22,8 @@ const argv = require('optimist')
     describe: 'rejectUnauthorized (ignore invalid certs name)',
     default: false
   })
-  .argv
+  .parse()
+
 
 const log = argv.verbose ? console.log.bind(console) : false
 ;[argv.mapping]
