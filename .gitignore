@@ -3,3 +3,4 @@ cache-lmdb
 cache-lmdb.lock
 dist
 *.tgz
+package-lock.json

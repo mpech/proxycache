@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 import http from 'http'
 import proxy from '../index.js'
-import path from 'path'
 import yargs from 'yargs/yargs'
 import { hideBin } from 'yargs/helpers'
-import { fileURLToPath } from 'url'
 
 const argv = yargs(hideBin(process.argv))
   .command('proxyCache Usage: $0 -m mapping [-m mapping]... [-v]', 'listen to local url and forward to remote')

@@ -2,11 +2,15 @@
   "name": "proxycache",
   "version": "1.0.0",
   "description": "serve requests from cache or fetch and cache",
-  "files": ["dist", "bin"],
+  "files": [
+    "dist",
+    "bin"
+  ],
   "main": "./dist/index.cjs",
   "dependencies": {
     "http-proxy": "^1.18.1",
     "lmdb": "^2.5.2",
+    "node-object-hash": "^2.3.10",
     "through2": "^3.0.2",
     "yargs": "^17.5.1"
   },
