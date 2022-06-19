@@ -1,3 +1,5 @@
 node_modules
 cache-lmdb
 cache-lmdb.lock
+dist
+*.tgz

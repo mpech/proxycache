@@ -2,7 +2,8 @@
   "name": "proxycache",
   "version": "1.0.0",
   "description": "serve requests from cache or fetch and cache",
-  "main": "index.js",
+  "files": ["dist", "bin"],
+  "main": "./dist/index.cjs",
   "dependencies": {
     "http-proxy": "^1.18.1",
     "lmdb": "^2.5.2",
@@ -11,9 +12,11 @@
   },
   "scripts": {
     "cli": "./bin/cli.js",
-    "start": "./super.sh"
+    "start": "./super.sh",
+    "build": "./build.sh"
   },
   "devDependencies": {
+    "esbuild": "^0.14.45",
     "supervisor": "^0.12.0"
   },
   "author": "mpech",
